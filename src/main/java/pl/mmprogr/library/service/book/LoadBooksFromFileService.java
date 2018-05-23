@@ -26,6 +26,7 @@ public class LoadBooksFromFileService {
 		try {
 			reader = new JsonReader(new FileReader(pathToFile));
 		} catch (FileNotFoundException e) {
+			// TODO Dużo bezpieczniej byłoby zwrócić w tym miejscu pustą listę niż nulla
 			return null;
 		}
 

@@ -62,6 +62,7 @@ public class AddBookToLibraryView extends View implements GetBookDataFromUser {
 	public String getIsbnNumberDataFromUser(){
 		System.out.println("Type ISBN Number: ");
 		String isbnNumber = inputView.getDataFromUser();
+		// TODO Dobra walidacja brawo!
 		while (!validatorService.isNumberInText(isbnNumber)
 				|| !validatorService.hasLength(isbnNumber, 13)
 				|| !validatorService.isIsbnNumberAlreadyTyped(isbnNumber)) {

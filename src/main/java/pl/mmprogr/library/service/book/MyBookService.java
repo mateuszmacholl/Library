@@ -10,6 +10,7 @@ import pl.mmprogr.library.service.book.interfaces.BookService;
 import java.util.List;
 
 @Service
+// TODO MyBookService :)
 public class MyBookService implements BookService {
 	private final BookRepo bookRepo;
 

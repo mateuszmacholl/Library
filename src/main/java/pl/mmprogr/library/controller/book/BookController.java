@@ -12,14 +12,19 @@ import pl.mmprogr.library.view.RemoveBookFromLibraryView;
 import java.util.List;
 
 @Controller
+// TODO Controller jednak dosyć mocno wskazuje na weba, lepiej byłoby pozostać wszędzie przy @Service
+// TODO W tej klasie dzieje się trochę za dużo. Wydaje mi się że można byłoby to spokojnie porozbijać na więcej serwisów np. BookShowService, BookRemoveService itp.
 public class BookController {
 	private final AddBookToLibraryView addBookToLibraryView;
 	private final FindBookView findBookView;
 	private final RemoveBookFromLibraryView removeBookFromLibraryView;
 	private final SaveBooksToFileService saveBooksToFileService;
 	private final BookService bookService;
+	// TODO Nie powinieneś trzymać stanu na poziomu serwisu który jest singletonem, tak naprawdę nigdy nie mozesz miec teraz pewnosci czy ktos Ci tego pathToFile nie zmienił
+	// TODO i jeżeli to się stanie nawet nie będziesz wiedział kiedy i gdzie to zostało zmienione
 	private String pathToFile;
 
+	// TODO Szczegół ale od Spring Boot 1.5 nie trzeba pisać @Autowired nad konstruktorem (wstrzyknie się i tak)
 	@Autowired
 	public BookController(AddBookToLibraryView addBookToLibraryView,
 	                      FindBookView findBookView,

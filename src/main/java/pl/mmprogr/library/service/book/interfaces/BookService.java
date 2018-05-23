@@ -7,6 +7,8 @@ import pl.mmprogr.library.model.user.User;
 import java.util.List;
 
 @Service
+// TODO Jest taka zasada żeby nie tworzyć interfejsów jeżeli posiadać on będzie tylko jedną implementację. Unikamy tworzenia rzeczy na zapas  (trzeba dążyć do jak najmniejszej ilości kodu)
+// TODO Jeżeli w przyszłości pojawiłaby się potrzeba na inną implementację BookService to wówczas możnaby się zastanowić nad wydzieleniem wspólnego interfejsu. Nie wcześniej
 public interface BookService {
 	void setBooks(List<Book> books);
 

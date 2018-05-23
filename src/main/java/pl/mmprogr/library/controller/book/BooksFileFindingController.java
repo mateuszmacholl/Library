@@ -34,6 +34,7 @@ public class BooksFileFindingController {
 
 	private boolean loadBooks(String pathToFile) {
 		List<Book> books = loadBooksFromFileService.load(pathToFile);
+		// TODO Zamiast uzależniać logikę programu od nulla, lepiej byłoby napisać walidator który wcześniej upewni się że dany plik istnieje
 		if (books != null) {
 			bookService.setBooks(books);
 			typePathToBookFileView.show(books);

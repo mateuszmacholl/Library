@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Repository
+// TODO BookRepository -> nie ma sensu skracać nazw
 public class BookRepo {
 	private List<Book> books;
 
@@ -62,8 +63,10 @@ public class BookRepo {
 
 	public List<User> getBooksWithLender() {
 		List<User> lenders = new ArrayList<>();
+		// TODO: Widzę że używasz streamów dlatego nie ma powodu żebyś nie użył ich też tutaj. To może być dobre ćwiczenie :)
 		for (Book book : books) {
 			User lender = book.getLender();
+			// TODO: zamiast sprawdzać czy lender nie jest nullem spróbuj zwrócić z metody book.getLender() typ Optional<User>. Dzięki temu zawsze będziesz chroniony od niechcianego nulla
 			if (lender != null) {
 				lenders.add(lender);
 			}
@@ -77,6 +80,7 @@ public class BookRepo {
 				return book;
 			}
 		}
+		// TODO Od javy 8 zalecane jest używanie klasy Optional jeżeli zwracana wartość może być nullem
 		return null;
 	}
 
